@@ -91,7 +91,7 @@
       </div>
   </div>
   <button id="muteButton" class="mute-button">
-    <i class="fas fa-volume-up sound-icon"></i>
+    <i class="fas fa-volume-mute sound-icon"></i>
   </button>
   <script>
       var birthDate = new Date(1999, 0, 23); 
@@ -123,11 +123,11 @@
         const audioElem = document.getElementById("birthdaySongSpeaker");
         if (audioElem.muted) {
           audioElem.muted = false; 
-          muteIcon.classList.remove('fa-volume-up');
-          muteIcon.classList.add('fa-volume-mute');
-        } else {
           muteIcon.classList.remove('fa-volume-mute');
           muteIcon.classList.add('fa-volume-up');
+        } else {
+          muteIcon.classList.remove('fa-volume-up');
+          muteIcon.classList.add('fa-volume-mute');
           audioElem.muted = true;
         }
       });
