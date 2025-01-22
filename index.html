@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+</head>
+<body>
+  <link href='https://fonts.googleapis.com/css?family=Original Surfer' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Miltonian Tattoo' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link type="text/css" rel="stylesheet" href="style.css"/> 
+  <div class="bodyStyle">
+      <div class="happyBirthdayContainer">
+          <div class="birthdayText">FELIZ<br />ANIVERSÁRIO!</div>
+          <div class="happyBirthdayName">MBA</div>
+          <img class="iceCreamCake" src="assets/iceCreamCake.svg">
+          <img class="ballon ballon-s1-top-left" src="assets/ballon-s1-top-left.svg">
+          <img class="ballon ballon-s1-top-right" src="assets/ballon-s1-top-right.svg">
+          <img class="ballon ballon-s1-bottom-left" src="assets/ballon-s1-bottom-left.svg">
+          <img class="ballon ballon-s1-bottom-right" src="assets/ballon-s1-bottom-right.svg">
+      </div>
+      <div id="birthdayFireworks" class="pyro" style="display: none;">
+        <div class="before"></div>
+        <div class="after"></div>
+      </div>
+      <div class="birthdayCalendarSection">
+          <div class="birthdayText">UM DIA MUITO <br /> ESPECIAL...</div>
+          <div id="birthdayCalendarContainer">
+              <img src="assets/calendar.svg">
+              <span id="birthDateMonth" class="birthdayCalendarHeader" style="left: 17%;"></span>
+              <span id="birthDateYear" class="birthdayCalendarHeader" style="right: 3%;"></span>
+              <span id="birthdayDayText" class="birthdayText"></span>
+          </div>
+      </div>
+      <div class="birthdayAgeSection">
+          <div class="birthdayText">EMBELEZANDO O<br />MUNDO HÁ...</div>
+          <div class="birthdayAgeContainer">
+          <div class="birthdayAgeCol1">
+              <span id="year" style="font-size: 72px;"></span><br /><span style="font-size: 28px;">ANOS</span>
+          </div>
+          <div class="birthdayAgeCol2">
+              <span style="font-size: 42px; position:relative; bottom: 15px;">MESES</span>
+              <br/>
+              <div style="font-size: 61px; position: relative;"><span id="month"></span>&nbsp;<span id="day"></span></div>
+          </div>
+          <div class="birthdayAgeCol3">
+              dias
+          </div>
+          </div>
+      </div>
+      <div id="birthdayPhotosSection">
+          <img class="ballon ballon-s2-left" src="assets/ballon-s2-left.svg"/>
+          <img class="ballon ballon-s2-right" src="assets/ballon-s2-right.svg"/>
+          <div class="birthdayPhotosFrameOuter">
+          <img class="birthdayPhotosFramePin" src="assets/pin.svg"/>
+          <div class="birthdayPhotosFrameInner">
+              <swiper-container pagination="true" space-between="30" centered-slides="true" loop="true">
+                  <swiper-slide>
+                      <img src="images/1.jpeg"/>
+                  </swiper-slide>
+                  <swiper-slide>
+                      <img src="images/2.jpeg"/>
+                  </swiper-slide>
+                  <swiper-slide>
+                      <img src="images/3.jpeg"/>
+                  </swiper-slide>
+                  <swiper-slide>
+                      <img src="images/4.jpeg"/>
+                  </swiper-slide>
+              </swiper-container>
+          </div>
+          </div>
+      </div>
+      <div id="birthdayYouAreGift" class="birthdayText">
+          Você é um <br />
+          <span style="color: #0F5980;">presente</span> para <br/>
+          todos que te <br>
+          amam!
+      </div>
+      <div class="birthdayParagraph">
+        Happy Birthday to the most amazing woman I know, my dearest Amy. Every year that passes, I fall more deeply in love with you. Your kind heart, infectious laughter, and unwavering support make you the most incredible person I've ever met. You bring joy and light into my life in ways I never thought possible.
+
+        Thank you for always being you, for your adventurous spirit, and for sharing your incredible self with me. I cherish every moment we spend together, from our silly inside jokes to our deep conversations. I can't wait to create many more unforgettable memories with you.
+      </div>
+      <div id="birthdayEndBallons">
+          <img src="assets/ballon-s3.svg"/>
+      </div>
+  </div>
+
+  <script>
+      var birthDate = new Date(1999, 0, 23); 
+      document.getElementById('birthDateYear').innerHTML = 1900 + birthDate.getYear();
+      
+      var months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+      document.getElementById('birthDateMonth').innerHTML = months[birthDate.getMonth()];
+
+      document.getElementById('birthdayDayText').innerHTML = birthDate.getDate();
+      if (document.getElementById("birthdayDayText").innerText.length === 1) {
+          document.getElementById("birthdayDayText").style.left = '31.2%';
+      if (document.getElementById("birthdayDayText").innerText.includes("1")) {
+          document.getElementById("birthdayDayText").style.left = '32%';
+      }
+      } else if (document.getElementById("birthdayDayText").innerText.includes("11")) {
+          document.getElementById("birthdayDayText").style.left = '31%';
+      } else if (document.getElementById("birthdayDayText").innerText.includes("1")) {
+          document.getElementById("birthdayDayText").style.left = '30%';
+      }
+      
+      birthDate.setDate(birthDate.getDate() - 1); // Subtract one day so output looks nice.
+      var start = birthDate.toISOString().split('T')[0];
+  </script>
+  <script src="assets/js/clock.js"></script>
+  <script>
+      document.getElementById('birthdayFireworks').style.display = 'block';
+      setTimeout(() => {
+          document.getElementById('birthdayFireworks').style.display = 'none';
+      }, 6000);
+      var birthdaySongAudio = document.createElement('audio');
+      birthdaySongAudio.src = 'assets/xuxa-parabens.mp3';
+      birthdaySongAudio.play();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+</body>
+</html>
