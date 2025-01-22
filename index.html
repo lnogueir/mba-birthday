@@ -6,11 +6,13 @@
   <title>Happy Birthday!</title>
 </head>
 <body>
+  <audio id="birthdaySongSpeaker" src="assets/xuxa-parabens.mp3" autoplay muted loop playsinline></audio>
   <link href='https://fonts.googleapis.com/css?family=Original Surfer' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Miltonian Tattoo' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" href="favicon.ico"/>
   <link type="text/css" rel="stylesheet" href="style.css"/> 
   <div class="bodyStyle">
@@ -88,7 +90,9 @@
           <img src="assets/ballon-s3.svg"/>
       </div>
   </div>
-
+  <button id="muteButton" class="mute-button">
+    <i class="fas fa-volume-up sound-icon"></i>
+  </button>
   <script>
       var birthDate = new Date(1999, 0, 23); 
       document.getElementById('birthDateYear').innerHTML = 1900 + birthDate.getYear();
@@ -113,13 +117,24 @@
   </script>
   <script src="assets/js/clock.js"></script>
   <script>
+      const muteButton = document.getElementById("muteButton");
+      const muteIcon = muteButton.querySelector('i');
+      muteButton.addEventListener('click', function() {
+        const audioElem = document.getElementById("birthdaySongSpeaker");
+        if (audioElem.muted) {
+          audioElem.muted = false; 
+          muteIcon.classList.remove('fa-volume-up');
+          muteIcon.classList.add('fa-volume-mute');
+        } else {
+          muteIcon.classList.remove('fa-volume-mute');
+          muteIcon.classList.add('fa-volume-up');
+          audioElem.muted = true;
+        }
+      });
       document.getElementById('birthdayFireworks').style.display = 'block';
       setTimeout(() => {
           document.getElementById('birthdayFireworks').style.display = 'none';
       }, 6000);
-      var birthdaySongAudio = document.createElement('audio');
-      birthdaySongAudio.src = 'assets/xuxa-parabens.mp3';
-      birthdaySongAudio.play();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 </body>

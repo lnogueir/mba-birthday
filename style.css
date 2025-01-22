@@ -417,3 +417,34 @@ swiper-container img {
     margin-left: 80%;
  }
 }
+
+#audio-toggler {
+  position: sticky;
+  left: 15px;
+  bottom: 15px;
+}
+
+.mute-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.mute-button:hover {
+  transform: scale(1.1); 
+}
+
+.sound-icon {
+  font-size: 21px;
+}
