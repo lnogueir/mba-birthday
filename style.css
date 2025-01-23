@@ -173,12 +173,11 @@ swiper-container img {
 }
 .birthdayParagraph {
   display: flex;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 30px;
   margin-left: 12%;
   margin-right: 12%;
   font-family: 'Poppins';
-  white-space: pre-wrap;
   color: #FFD780;
   font-size: 20px;
   text-align: left;
